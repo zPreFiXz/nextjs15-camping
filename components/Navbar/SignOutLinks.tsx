@@ -9,8 +9,8 @@ const SignOutLinks = () => {
     }
 
   return (
-    <SignOutButton redirectUrl="/">
-      <button className="w-full text-left" onClick={handleLogout}>Logout</button>
+    <SignOutButton>
+      <button className="w-full text-left cursor-pointer" onClick={handleLogout}>Logout</button>
     </SignOutButton>
   );
 };
