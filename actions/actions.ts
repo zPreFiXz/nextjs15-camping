@@ -15,6 +15,7 @@ export const createProfileAction = async (
   try {
     const rawData = Object.fromEntries(formData);
     const validateField = validateWithZod(profileSchema, rawData);
+    console.log(validateField);
     return { message: "Create Profile Successfully!!!" };
   } catch (error) {
     console.log(error);
