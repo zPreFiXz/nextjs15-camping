@@ -1,10 +1,23 @@
 "use server";
 
+import { profileSchema, validateWithZod } from "@/utils/schemas";
+
+const renderError = (error: unknown): { message: string } => {
+  return {
+    message: error instanceof Error ? error.message : "An Error!!!",
+  };
+};
+
 export const createProfileAction = async (
   prevState: any,
   formData: FormData
 ) => {
-  const firstName = formData.get("firstName") as string;
-
-  return { message: "Create Profile Successfully!!!" };
+  try {
+    const rawData = Object.fromEntries(formData);
+    const validateField = validateWithZod(profileSchema, rawData);
+    return { message: "Create Profile Successfully!!!" };
+  } catch (error) {
+    console.log(error);
+    return renderError(error);
+  }
 };

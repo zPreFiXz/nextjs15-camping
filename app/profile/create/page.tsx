@@ -17,13 +17,13 @@ const CreateProfile = () => {
               placeholder="First Name"
             />
             <FormInput
-              name="laseName"
+              name="lastName"
               type="text"
               label="Last Name"
               placeholder="Last Name"
             />
             <FormInput
-              name="username"
+              name="userName"
               type="text"
               label="Username"
               placeholder="Username"
