@@ -25,9 +25,12 @@ export const createProfileAction = async (
   formData: FormData
 ) => {
   try {
-    const user = await getAuthUser();
+    const user = await currentUser();
+    if (!user) throw new Error("Please Login!!!");
+
     const rawData = Object.fromEntries(formData);
     const validateField = validateWithZod(profileSchema, rawData);
+
     await db.profile.create({
       data: {
         clerkId: user.id,
@@ -43,8 +46,24 @@ export const createProfileAction = async (
       },
     });
   } catch (error) {
-    console.log(error);
     return renderError(error);
   }
   redirect("/");
+};
+
+export const createLandmarkAction = async (
+  prevState: any,
+  formData: FormData
+): Promise<{ message: string }> => {
+  try {
+    const user = await currentUser();
+    if (!user) throw new Error("Please Login!!!");
+
+    const rawData = Object.fromEntries(formData);
+    console.log("validted", rawData);
+
+    return { message: "Create Landmark Success!!!" };
+  } catch (error) {
+    return renderError(error);
+  }
 };
