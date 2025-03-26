@@ -3,6 +3,8 @@ import { SubmitButton } from "@/components/form/Buttons";
 import CategoryInput from "@/components/form/CategoryInput";
 import FormContainer from "@/components/form/FormContainer";
 import FormInput from "@/components/form/FormInput";
+import ProvinceInput from "@/components/form/ProvinceInput";
+import TextAreaInput from "@/components/form/TextAreaInput";
 
 const CreateProfile = async () => {
   return (
@@ -22,6 +24,17 @@ const CreateProfile = async () => {
 
             <CategoryInput />
           </div>
+          <TextAreaInput name="description" LabelText="Description" />
+          <div className="grid md:grid-cols-2 gap-4 mt-4">
+            <FormInput
+              name="price"
+              type="number"
+              label="price"
+              placeholder="Price"
+            />
+            <ProvinceInput />
+          </div>
+
           <SubmitButton text="Create Landmark" size="lg" />
         </FormContainer>
       </div>
