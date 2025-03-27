@@ -5,6 +5,7 @@ import FormContainer from "@/components/form/FormContainer";
 import FormInput from "@/components/form/FormInput";
 import ProvinceInput from "@/components/form/ProvinceInput";
 import TextAreaInput from "@/components/form/TextAreaInput";
+import MapLandmark from "@/components/map/MapLandmark";
 
 const CreateProfile = async () => {
   return (
@@ -35,6 +36,7 @@ const CreateProfile = async () => {
             <ProvinceInput />
           </div>
 
+          <MapLandmark />
           <SubmitButton text="Create Landmark" size="lg" />
         </FormContainer>
       </div>
